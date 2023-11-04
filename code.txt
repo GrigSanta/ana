@@ -1,0 +1,63 @@
+/**
+ * Converts text to Morse code.
+ *
+ * This function takes a string of text as input and converts it to Morse code.
+ * Each character in the input text is converted to its corresponding Morse code
+ * representation. The Morse code is returned as a string.
+ *
+ * @param {string} text - The text to be converted to Morse code.
+ * @returns {string} The Morse code representation of the input text.
+ *
+ * @example
+ * const inputText = "HELLO";
+ * const morseCode = convertToMorseCode(inputText);
+ * console.log(morseCode); // Expected Output: ".... . .-.. .-.. ---"
+ */
+function convertToMorseCode(text) {
+    // Define the Morse code dictionary
+    const morseCodeDictionary = {
+        A: ".-",
+        B: "-...",
+        C: "-.-.",
+        D: "-..",
+        E: ".",
+        F: "..-.",
+        G: "--.",
+        H: "....",
+        I: "..",
+        J: ".---",
+        K: "-.-",
+        L: ".-..",
+        M: "--",
+        N: "-.",
+        O: "---",
+        P: ".--.",
+        Q: "--.-",
+        R: ".-.",
+        S: "...",
+        T: "-",
+        U: "..-",
+        V: "...-",
+        W: ".--",
+        X: "-..-",
+        Y: "-.--",
+        Z: "--..",
+        " ": " ", // Space character
+    };
+
+    // Convert each character in the input text to its Morse code representation
+    const morseCodeArray = Array.from(text.toUpperCase()).map((char) => {
+        return morseCodeDictionary[char] || ""; // Return Morse code representation or empty string for unknown characters
+    });
+
+    // Join the Morse code representations of each character with a space separator
+    const morseCode = morseCodeArray.join(" ");
+
+    return morseCode;
+}
+
+// Usage Example
+
+const inputText = "HELLO";
+const morseCode = convertToMorseCode(inputText);
+console.log(morseCode);
